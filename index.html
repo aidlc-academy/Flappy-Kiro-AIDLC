@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Flappy Kiro</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="game-container">
+    <canvas id="gameCanvas" width="400" height="600"></canvas>
+
+    <!-- Overlay screens -->
+    <div id="start-screen" class="screen">
+      <h1>Flappy Kiro</h1>
+      <p class="subtitle">Guide Ghosty through the walls!</p>
+      <div class="controls-hint">
+        <span>Press <kbd>Space</kbd> or tap to flap</span>
+      </div>
+      <button id="start-btn" class="btn">Play</button>
+    </div>
+
+    <div id="game-over-screen" class="screen hidden">
+      <h1>Game Over</h1>
+      <p class="score-label">Score</p>
+      <p id="final-score" class="score-value">0</p>
+      <p class="score-label">Best</p>
+      <p id="best-score" class="score-value">0</p>
+      <button id="restart-btn" class="btn">Try Again</button>
+    </div>
+
+    <!-- In-game HUD -->
+    <div id="hud" class="hidden">
+      <span id="live-score">0</span>
+    </div>
+  </div>
+
+  <script src="game.js"></script>
+</body>
+</html>
