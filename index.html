@@ -2,36 +2,73 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <title>Flappy Kiro</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div id="game-container">
-    <canvas id="gameCanvas" width="400" height="600"></canvas>
+  <div id="game-wrapper">
+    <canvas id="gameCanvas"></canvas>
 
-    <!-- Overlay screens -->
-    <div id="start-screen" class="screen">
-      <h1>Flappy Kiro</h1>
-      <p class="subtitle">Guide Ghosty through the walls!</p>
-      <div class="controls-hint">
-        <span>Press <kbd>Space</kbd> or tap to flap</span>
+    <!-- ── Start Screen ── -->
+    <div id="start-screen" class="overlay">
+      <div class="overlay-inner">
+        <div class="logo-wrap">
+          <span class="logo-ghost">👻</span>
+          <h1 class="logo-title">Flappy<br><span class="logo-accent">Kiro</span></h1>
+        </div>
+        <p class="tagline">Guide <strong>Ghosty</strong> through the laser gates!</p>
+
+        <div class="feature-pills">
+          <span class="pill">◈ Phase Shield</span>
+          <span class="pill">▲ Rocket Dash</span>
+          <span class="pill">● Mini Ghost</span>
+          <span class="pill">⇅ Gravity Flip</span>
+        </div>
+
+        <div class="controls-row">
+          <div class="control-chip"><kbd>Space</kbd><span>Flap</span></div>
+          <div class="control-chip"><span>Tap / Click</span><span>Flap</span></div>
+        </div>
+
+        <button id="start-btn" class="btn btn-primary">
+          <span class="btn-icon">▶</span> Play Now
+        </button>
+
+        <p class="best-display" id="start-best"></p>
       </div>
-      <button id="start-btn" class="btn">Play</button>
     </div>
 
-    <div id="game-over-screen" class="screen hidden">
-      <h1>Game Over</h1>
-      <p class="score-label">Score</p>
-      <p id="final-score" class="score-value">0</p>
-      <p class="score-label">Best</p>
-      <p id="best-score" class="score-value">0</p>
-      <button id="restart-btn" class="btn">Try Again</button>
+    <!-- ── Game-Over Screen ── -->
+    <div id="gameover-screen" class="overlay hidden">
+      <div class="overlay-inner">
+        <h2 class="go-title">Game Over</h2>
+        <div class="score-grid">
+          <div class="score-card">
+            <span class="sc-label">Score</span>
+            <span class="sc-value" id="final-score">0</span>
+          </div>
+          <div class="score-card highlight">
+            <span class="sc-label">Best</span>
+            <span class="sc-value" id="best-score">0</span>
+          </div>
+        </div>
+        <div id="combo-badge" class="combo-badge hidden">🔥 Max Combo <span id="max-combo-val">0</span>×</div>
+        <button id="restart-btn" class="btn btn-primary">
+          <span class="btn-icon">↺</span> Try Again
+        </button>
+        <button id="menu-btn" class="btn btn-ghost">Menu</button>
+      </div>
     </div>
 
-    <!-- In-game HUD -->
+    <!-- ── HUD ── -->
     <div id="hud" class="hidden">
-      <span id="live-score">0</span>
+      <div id="hud-score">0</div>
+      <div id="combo-display" class="hidden">COMBO <span id="combo-val">1</span>×</div>
+      <div id="powerup-display" class="hidden">
+        <span id="powerup-icon"></span>
+        <div id="powerup-bar-wrap"><div id="powerup-bar"></div></div>
+      </div>
     </div>
   </div>
 
